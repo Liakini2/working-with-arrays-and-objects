@@ -50,7 +50,18 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+const employeeUpdater = () =>{
+  for(let i in employees){
+    // if name is = to Theo delete it
+    if (employees[i].firstName === "Theo"){
+    //we don't put .firstName in the delete because that only deletes the firstName property for the object. 
+    delete employees[i]
+    } else if (employees[i].firstName === "Lorie"){
+      employees[i].department = 'HR'
+    }
+  }
+  return employees
+}
 
 
 
@@ -68,9 +79,18 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+const removeDuplicates = () =>{
+  for(let i = 0; i < workplaceAccidents.length; i++){
+    for(let j=workplaceAccidents.length - 1; j>i; j--){
+      if (workplaceAccidents[i] === workplaceAccidents[j]){
+        workplaceAccidents.splice(j, 1)
+      }
+    }
+  }
+  return workplaceAccidents
+}
 
-
+//const removeDuplicates = () => [...new Set(workplaceAccidents)]
 
 ////////// PROBLEM 3 //////////
 
@@ -95,10 +115,9 @@ var cat = {
     1. Assign the value of Grumpy's 2nd activity to the grumpyActivity variable below.
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
-
-//Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+//cat.friends reaches into catFriends the cat array. [0] is accessing index 1. .activities is pulling the property activities
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -138,7 +157,12 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+let recordCleaner = () =>{
+  myCar.accidents.map((accidents)=>{
+    //single = (not ===) for assigning not comparing
+    accidents.atFaultForAccident = false
+  })
+}
 
 
 
@@ -157,6 +181,17 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+const looper = () =>{
+  for(let i = 0; i<numsArr.length; i++){
+    for(let j = 0; j<numsArr[i].length; j++){
+      if(numsArr[i][j] % 2 === 0){
+       numsArr[i][j] = 'even'
+      } else {
+        numsArr[i][j] = 'odd'
+      }
+    }
+  }
+  return numsArr
+}
 
 
